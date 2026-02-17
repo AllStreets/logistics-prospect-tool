@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar';
 import ResultCard from './components/ResultCard';
 import FavoritesTab from './components/FavoritesTab';
 import CompareModal from './components/CompareModal';
+import EmailGeneratorModal from './components/EmailGeneratorModal';
 import './App.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
@@ -16,6 +17,8 @@ function App() {
   const [selectedAnalyses, setSelectedAnalyses] = useState(null);
   const [showCompare, setShowCompare] = useState(false);
   const [compareIds, setCompareIds] = useState([]);
+  const [showEmailGenerator, setShowEmailGenerator] = useState(false);
+  const [emailIds, setEmailIds] = useState([]);
 
   useEffect(() => {
     fetchCompanies();
@@ -64,8 +67,8 @@ function App() {
       setCompareIds(action.ids);
       setShowCompare(true);
     } else if (action.type === 'email') {
-      // Will be handled in next task
-      setSelectedAnalyses(action);
+      setEmailIds(action.ids);
+      setShowEmailGenerator(true);
     }
     setShowFavorites(false);
   };
@@ -73,7 +76,8 @@ function App() {
   const handleGenerateEmails = (ids) => {
     setCompareIds([]);
     setShowCompare(false);
-    setSelectedAnalyses({ type: 'email', ids });
+    setEmailIds(ids);
+    setShowEmailGenerator(true);
   };
 
   return (
@@ -161,6 +165,12 @@ function App() {
         isOpen={showCompare}
         onClose={() => setShowCompare(false)}
         onGenerateEmails={handleGenerateEmails}
+      />
+
+      <EmailGeneratorModal
+        emailIds={emailIds}
+        isOpen={showEmailGenerator}
+        onClose={() => setShowEmailGenerator(false)}
       />
     </div>
   );
