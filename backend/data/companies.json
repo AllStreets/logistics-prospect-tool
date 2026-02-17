@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "Werner Enterprises",
+    "industry": "Long-haul trucking",
+    "location": "Omaha, Nebraska",
+    "type": "Regional Carrier",
+    "description": "Regional trucking and logistics provider with 10,000+ trucks"
+  },
+  {
+    "id": 2,
+    "name": "Heartland Express",
+    "industry": "Dry van trucking",
+    "location": "North Liberty, Iowa",
+    "type": "Owner-operator network",
+    "description": "Network of owner-operators in regional transportation"
+  },
+  {
+    "id": 3,
+    "name": "Dupre Logistics",
+    "industry": "Tank truck transport",
+    "location": "Houma, Louisiana",
+    "type": "Specialty Carrier",
+    "description": "Chemical and petroleum tank truck transportation"
+  },
+  {
+    "id": 4,
+    "name": "CRST International",
+    "industry": "Refrigerated trucking",
+    "location": "Cedar Rapids, Iowa",
+    "type": "Regional Carrier",
+    "description": "Refrigerated LTL and TL services across North America"
+  },
+  {
+    "id": 5,
+    "name": "Celadon Group",
+    "industry": "International trucking",
+    "location": "Indianapolis, Indiana",
+    "type": "Global Carrier",
+    "description": "International and domestic trucking and logistics"
+  },
+  {
+    "id": 6,
+    "name": "PAM Transportation",
+    "industry": "Flatbed and heavy haul",
+    "location": "Tontitown, Arkansas",
+    "type": "Specialty Carrier",
+    "description": "Flatbed, heavy haul, and specialized equipment transport"
+  },
+  {
+    "id": 7,
+    "name": "Uber Freight",
+    "industry": "Logistics marketplace",
+    "location": "San Francisco, California",
+    "type": "Digital Platform",
+    "description": "AI-driven freight matching and logistics network"
+  },
+  {
+    "id": 8,
+    "name": "Forward Air",
+    "industry": "Expedited and air freight",
+    "location": "Nashville, Tennessee",
+    "type": "Specialty Carrier",
+    "description": "Air and ground expedited freight services"
+  }
+]
