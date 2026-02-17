@@ -187,19 +187,20 @@ async function getAnalysesByIds(ids) {
       `SELECT * FROM saved_analyses WHERE id IN (${placeholders})`,
       ids
     );
+
     return rows.map(row => {
       let analysisData;
       try {
         analysisData = JSON.parse(row.analysis_data);
       } catch (parseError) {
         console.error(`Failed to parse analysis data for ID ${row.id}:`, parseError);
-        analysisData = null;
+        return null; // Mark for filtering
       }
       return {
         ...row,
         analysisData
       };
-    });
+    }).filter(row => row !== null); // Filter out invalid records
   } catch (error) {
     throw new Error(`Failed to retrieve analyses: ${error.message}`);
   }

@@ -155,7 +155,7 @@ app.post('/api/generate-emails', async (req, res) => {
     const analyses = await getAnalysesByIds(companyIds);
 
     if (analyses.length === 0) {
-      return res.status(404).json({ error: 'No analyses found' });
+      return res.status(404).json({ error: 'No valid analyses found for provided IDs' });
     }
 
     // Generate emails in batch
@@ -164,7 +164,19 @@ app.post('/api/generate-emails', async (req, res) => {
     res.json({ emails });
   } catch (error) {
     console.error('Email generation error:', error);
-    res.status(500).json({ error: error.message });
+
+    // Categorize errors for better HTTP status codes
+    if (error.message.includes('No analyses provided')) {
+      res.status(400).json({ error: error.message });
+    } else if (error.message.includes('missing required fields')) {
+      res.status(400).json({ error: error.message });
+    } else if (error.message.includes('Invalid OpenAI API key')) {
+      res.status(500).json({ error: 'Email service configuration error' });
+    } else if (error.message.includes('rate limit')) {
+      res.status(429).json({ error: 'Email service temporarily unavailable (rate limit)' });
+    } else {
+      res.status(500).json({ error: error.message });
+    }
   }
 });
 
