@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import ResultCard from './components/ResultCard';
 import FavoritesTab from './components/FavoritesTab';
+import CompareModal from './components/CompareModal';
 import './App.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
@@ -13,6 +14,8 @@ function App() {
   const [error, setError] = useState('');
   const [showFavorites, setShowFavorites] = useState(false);
   const [selectedAnalyses, setSelectedAnalyses] = useState(null);
+  const [showCompare, setShowCompare] = useState(false);
+  const [compareIds, setCompareIds] = useState([]);
 
   useEffect(() => {
     fetchCompanies();
@@ -57,9 +60,20 @@ function App() {
   };
 
   const handleAnalysisAction = (action) => {
-    setSelectedAnalyses(action);
+    if (action.type === 'compare') {
+      setCompareIds(action.ids);
+      setShowCompare(true);
+    } else if (action.type === 'email') {
+      // Will be handled in next task
+      setSelectedAnalyses(action);
+    }
     setShowFavorites(false);
-    // Further handlers for compare/email will be added in next tasks
+  };
+
+  const handleGenerateEmails = (ids) => {
+    setCompareIds([]);
+    setShowCompare(false);
+    setSelectedAnalyses({ type: 'email', ids });
   };
 
   return (
@@ -140,6 +154,13 @@ function App() {
         isOpen={showFavorites}
         onClose={() => setShowFavorites(false)}
         onAnalysisSelect={handleAnalysisAction}
+      />
+
+      <CompareModal
+        analysisIds={compareIds}
+        isOpen={showCompare}
+        onClose={() => setShowCompare(false)}
+        onGenerateEmails={handleGenerateEmails}
       />
     </div>
   );
