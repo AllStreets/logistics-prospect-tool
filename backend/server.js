@@ -15,8 +15,7 @@ const {
   getAllAnalyses,
   getAnalysisById,
   toggleFavorite,
-  deleteAnalysis,
-  getAnalysesByIds
+  deleteAnalysis
 } = require('./services/database');
 
 // Route to get all companies
@@ -57,7 +56,7 @@ app.post('/api/analyze', async (req, res) => {
   }
 });
 
-// NEW: Save analysis to database
+// Save analysis to database
 app.post('/api/save-analysis', async (req, res) => {
   try {
     const { companyName, analysisData } = req.body;
@@ -74,7 +73,7 @@ app.post('/api/save-analysis', async (req, res) => {
   }
 });
 
-// NEW: Get all saved analyses
+// Get all saved analyses
 app.get('/api/saved-analyses', async (req, res) => {
   try {
     const analyses = await getAllAnalyses();
@@ -85,37 +84,59 @@ app.get('/api/saved-analyses', async (req, res) => {
   }
 });
 
-// NEW: Get single saved analysis
+// Get single saved analysis
 app.get('/api/saved-analyses/:id', async (req, res) => {
   try {
-    const analysis = await getAnalysisById(parseInt(req.params.id));
+    const id = parseInt(req.params.id);
+    if (isNaN(id) || id <= 0) {
+      return res.status(400).json({ error: 'Invalid analysis ID' });
+    }
+
+    const analysis = await getAnalysisById(id);
     res.json(analysis);
   } catch (error) {
     console.error('Fetch error:', error);
-    res.status(404).json({ error: error.message });
+    const statusCode = error.message === 'Analysis not found' ? 404 : 500;
+    res.status(statusCode).json({ error: error.message });
   }
 });
 
-// NEW: Toggle favorite status
+// Toggle favorite status
 app.put('/api/saved-analyses/:id/favorite', async (req, res) => {
   try {
+    const id = parseInt(req.params.id);
+    if (isNaN(id) || id <= 0) {
+      return res.status(400).json({ error: 'Invalid analysis ID' });
+    }
+
     const { is_favorite } = req.body;
-    const result = await toggleFavorite(parseInt(req.params.id), is_favorite);
+    if (typeof is_favorite !== 'boolean') {
+      return res.status(400).json({ error: 'is_favorite must be a boolean' });
+    }
+
+    const result = await toggleFavorite(id, is_favorite);
     res.json(result);
   } catch (error) {
     console.error('Update error:', error);
-    res.status(500).json({ error: error.message });
+    const statusCode = error.message === 'Analysis not found' ? 404 : 500;
+    res.status(statusCode).json({ error: error.message });
   }
 });
 
-// NEW: Delete saved analysis
+// Delete saved analysis
 app.delete('/api/saved-analyses/:id', async (req, res) => {
   try {
-    const result = await deleteAnalysis(parseInt(req.params.id));
+    const id = parseInt(req.params.id);
+    if (isNaN(id) || id <= 0) {
+      return res.status(400).json({ error: 'Invalid analysis ID' });
+    }
+
+    const result = await deleteAnalysis(id);
     res.json(result);
   } catch (error) {
     console.error('Delete error:', error);
-    res.status(500).json({ error: error.message });
+    const statusCode = error.message === 'Analysis not found' ? 404 : 500;
+    res.status(statusCode).json({ error: error.message });
   }
 });
 
