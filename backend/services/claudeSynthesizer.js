@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages';
+const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 
 async function synthesizeIntelligence(aggregatedData) {
   const { companyName, news, searchResults } = aggregatedData;
@@ -36,12 +36,15 @@ Provide a JSON response with exactly these fields:
 
   try {
     const response = await axios.post(
-      CLAUDE_API_URL,
+      OPENAI_API_URL,
       {
-        model: 'claude-3-5-sonnet-20241022',
+        model: 'gpt-4-turbo',
         max_tokens: 500,
-        system: systemPrompt,
         messages: [
+          {
+            role: 'system',
+            content: systemPrompt
+          },
           {
             role: 'user',
             content: userPrompt
@@ -50,21 +53,21 @@ Provide a JSON response with exactly these fields:
       },
       {
         headers: {
-          'x-api-key': process.env.CLAUDE_API_KEY,
-          'anthropic-version': '2023-06-01'
+          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+          'Content-Type': 'application/json'
         }
       }
     );
 
-    const content = response.data.content[0].text;
+    const content = response.data.choices[0].message.content;
     // Parse JSON from response
     const jsonMatch = content.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
       return JSON.parse(jsonMatch[0]);
     }
-    throw new Error('Could not parse JSON from Claude response');
+    throw new Error('Could not parse JSON from OpenAI response');
   } catch (error) {
-    console.error('Claude API error:', error.message);
+    console.error('OpenAI API error:', error.message);
     return {
       profile: 'Unable to generate profile at this time.',
       painPoints: ['Unable to analyze at this time'],
