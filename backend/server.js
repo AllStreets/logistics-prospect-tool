@@ -10,12 +10,14 @@ app.use(express.json());
 const companies = require('./data/companies.json');
 const { aggregateCompanyData } = require('./services/dataAggregator');
 const { synthesizeIntelligence } = require('./services/claudeSynthesizer');
+const { generateBatchEmails } = require('./services/emailGenerator');
 const {
   saveAnalysis,
   getAllAnalyses,
   getAnalysisById,
   toggleFavorite,
-  deleteAnalysis
+  deleteAnalysis,
+  getAnalysesByIds
 } = require('./services/database');
 
 // Route to get all companies
@@ -137,6 +139,32 @@ app.delete('/api/saved-analyses/:id', async (req, res) => {
     console.error('Delete error:', error);
     const statusCode = error.message === 'Analysis not found' ? 404 : 500;
     res.status(statusCode).json({ error: error.message });
+  }
+});
+
+// Generate batch emails for multiple saved analyses
+app.post('/api/generate-emails', async (req, res) => {
+  try {
+    const { companyIds } = req.body;
+
+    if (!companyIds || !Array.isArray(companyIds) || companyIds.length === 0) {
+      return res.status(400).json({ error: 'Company IDs array required' });
+    }
+
+    // Fetch analyses from database
+    const analyses = await getAnalysesByIds(companyIds);
+
+    if (analyses.length === 0) {
+      return res.status(404).json({ error: 'No analyses found' });
+    }
+
+    // Generate emails in batch
+    const emails = await generateBatchEmails(analyses);
+
+    res.json({ emails });
+  } catch (error) {
+    console.error('Email generation error:', error);
+    res.status(500).json({ error: error.message });
   }
 });
 
