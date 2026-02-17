@@ -1,35 +1,105 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import SearchBar from './components/SearchBar';
+import ResultCard from './components/ResultCard';
+import './App.css';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [companies, setCompanies] = useState([]);
+  const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    fetchCompanies();
+  }, []);
+
+  const fetchCompanies = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/companies`);
+      const data = await response.json();
+      setCompanies(data);
+    } catch (err) {
+      setError('Failed to load companies');
+      console.error(err);
+    }
+  };
+
+  const handleSearch = async (companyName) => {
+    setLoading(true);
+    setError('');
+    setResults(null);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/analyze`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ companyName })
+      });
+
+      if (!response.ok) throw new Error('Analysis failed');
+      const data = await response.json();
+      setResults(data);
+    } catch (err) {
+      setError('Failed to analyze company');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container">
+      <div className="header">
+        <h1>Prospect Intelligence</h1>
+        <p>AI-powered logistics company analysis for HappyRobot SDR outreach</p>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div className="main-content">
+        <SearchBar
+          companies={companies}
+          onSearch={handleSearch}
+          loading={loading}
+        />
+
+        {error && (
+          <div className="error-message" style={{ color: '#ef4444', marginBottom: '20px' }}>
+            {error}
+          </div>
+        )}
+
+        {results && (
+          <div className="results-container">
+            <ResultCard
+              title="Company Profile"
+              content={results.profile}
+              icon="🏢"
+              index={0}
+            />
+            <ResultCard
+              title="Tech Stack"
+              content={results.techStack}
+              icon="💻"
+              index={1}
+            />
+            <ResultCard
+              title="Pain Points"
+              content={results.painPoints}
+              icon="⚠️"
+              index={2}
+            />
+            <ResultCard
+              title="Outreach Angle"
+              content={results.outreachAngle}
+              icon="🎯"
+              index={3}
+            />
+          </div>
+        )}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
