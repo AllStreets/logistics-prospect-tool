@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import ResultCard from './components/ResultCard';
+import FavoritesTab from './components/FavoritesTab';
 import './App.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
@@ -10,6 +11,8 @@ function App() {
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showFavorites, setShowFavorites] = useState(false);
+  const [selectedAnalyses, setSelectedAnalyses] = useState(null);
 
   useEffect(() => {
     fetchCompanies();
@@ -53,10 +56,24 @@ function App() {
     console.log('Analysis saved:', saveData);
   };
 
+  const handleAnalysisAction = (action) => {
+    setSelectedAnalyses(action);
+    setShowFavorites(false);
+    // Further handlers for compare/email will be added in next tasks
+  };
+
   return (
     <div className="app-container">
       <div className="header">
-        <h1>Prospect Intelligence</h1>
+        <div className="header-top">
+          <h1>Prospect Intelligence</h1>
+          <button
+            className="favorites-tab-btn"
+            onClick={() => setShowFavorites(!showFavorites)}
+          >
+            📋 Saved ({showFavorites ? '✓' : ''})
+          </button>
+        </div>
         <p>AI-powered logistics company analysis for HappyRobot SDR outreach</p>
       </div>
 
@@ -118,6 +135,12 @@ function App() {
           </div>
         )}
       </div>
+
+      <FavoritesTab
+        isOpen={showFavorites}
+        onClose={() => setShowFavorites(false)}
+        onAnalysisSelect={handleAnalysisAction}
+      />
     </div>
   );
 }
