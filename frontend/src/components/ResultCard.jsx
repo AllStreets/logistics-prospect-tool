@@ -1,6 +1,10 @@
 import './ResultCard.css';
+import SaveAnalysisButton from './SaveAnalysisButton';
 
-export default function ResultCard({ title, content, icon, index }) {
+export default function ResultCard({ title, content, icon, index, showSaveButton, companyName, analysisData, onSaved }) {
+  // Only show save button on the last card (Outreach Angle)
+  const isFinalCard = title === 'Outreach Angle';
+
   return (
     <div className="result-card" style={{ animationDelay: `${index * 0.1}s` }}>
       <div className="card-header">
@@ -18,6 +22,13 @@ export default function ResultCard({ title, content, icon, index }) {
           <p>{content}</p>
         )}
       </div>
+      {isFinalCard && showSaveButton && (
+        <SaveAnalysisButton
+          companyName={companyName}
+          analysisData={analysisData}
+          onSaved={onSaved}
+        />
+      )}
     </div>
   );
 }

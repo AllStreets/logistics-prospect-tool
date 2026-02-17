@@ -49,6 +49,10 @@ function App() {
     }
   };
 
+  const handleSaved = (saveData) => {
+    console.log('Analysis saved:', saveData);
+  };
+
   return (
     <div className="app-container">
       <div className="header">
@@ -76,24 +80,40 @@ function App() {
               content={results.profile}
               icon="🏢"
               index={0}
+              showSaveButton={true}
+              companyName={results.company}
+              analysisData={results}
+              onSaved={handleSaved}
             />
             <ResultCard
               title="Tech Stack"
               content={results.techStack}
               icon="💻"
               index={1}
+              showSaveButton={true}
+              companyName={results.company}
+              analysisData={results}
+              onSaved={handleSaved}
             />
             <ResultCard
               title="Pain Points"
               content={results.painPoints}
               icon="⚠️"
               index={2}
+              showSaveButton={true}
+              companyName={results.company}
+              analysisData={results}
+              onSaved={handleSaved}
             />
             <ResultCard
               title="Outreach Angle"
               content={results.outreachAngle}
               icon="🎯"
               index={3}
+              showSaveButton={true}
+              companyName={results.company}
+              analysisData={results}
+              onSaved={handleSaved}
             />
           </div>
         )}
