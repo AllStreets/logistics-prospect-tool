@@ -8,6 +8,7 @@ app.use(express.json());
 
 // Load companies data
 const companies = require('./data/companies.json');
+const industryInsights = require('./data/industryInsights.json');
 const { aggregateCompanyData } = require('./services/dataAggregator');
 const { synthesizeIntelligence } = require('./services/claudeSynthesizer');
 const { generateBatchEmails } = require('./services/emailGenerator');
@@ -178,6 +179,11 @@ app.post('/api/generate-emails', async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   }
+});
+
+// Get industry insights
+app.get('/api/data/insights', (req, res) => {
+  res.json(industryInsights);
 });
 
 const PORT = process.env.PORT || 5000;

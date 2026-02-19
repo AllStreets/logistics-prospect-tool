@@ -31,8 +31,25 @@ Provide a JSON response with exactly these fields:
   "profile": "2-3 sentence company overview including size, location, specialty, and business model",
   "painPoints": ["Pain point 1", "Pain point 2", "Pain point 3"],
   "techStack": "1-2 sentence assessment of visible technology/infrastructure. If unknown, say 'Limited public tech visibility'",
-  "outreachAngle": "Specific 1-2 sentence cold call pitch for HappyRobot that addresses their pain points"
-}`;
+  "outreachAngle": "Specific 1-2 sentence cold call pitch for HappyRobot that addresses their pain points",
+  "decisionMakers": [
+    {
+      "title": "Decision maker title/role (e.g., Fleet Manager, Operations Director, VP Logistics)",
+      "concerns": "Their specific concerns with communication, compliance, or operational efficiency"
+    },
+    {
+      "title": "Another decision maker title",
+      "concerns": "Their specific concerns"
+    }
+  ]
+}
+
+For decisionMakers, tailor titles based on company type:
+- Large carriers (100+ trucks): Include Fleet Manager, Operations Director, VP of Logistics
+- Owner-operator networks: Include Network Coordinator, Owner-Operators Representative
+- Specialty carriers: Include Compliance Officer, Safety Manager, Operations Manager
+
+Keep response concise but complete.`;
 
   try {
     const response = await axios.post(
@@ -63,7 +80,17 @@ Provide a JSON response with exactly these fields:
     // Parse JSON from response
     const jsonMatch = content.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
-      return JSON.parse(jsonMatch[0]);
+      const parsed = JSON.parse(jsonMatch[0]);
+
+      // Add fallback for decisionMakers if not present
+      if (!parsed.decisionMakers || !Array.isArray(parsed.decisionMakers)) {
+        parsed.decisionMakers = [
+          { title: 'Operations Manager', concerns: 'Driver coordination and compliance efficiency' },
+          { title: 'Fleet Manager', concerns: 'Cost optimization and routing efficiency' }
+        ];
+      }
+
+      return parsed;
     }
     throw new Error('Could not parse JSON from OpenAI response');
   } catch (error) {
