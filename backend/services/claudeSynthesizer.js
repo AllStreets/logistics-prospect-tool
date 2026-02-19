@@ -35,11 +35,11 @@ Provide a JSON response with exactly these fields:
   "decisionMakers": [
     {
       "title": "Decision maker title/role (e.g., Fleet Manager, Operations Director, VP Logistics)",
-      "concerns": "Their specific concerns with communication, compliance, or operational efficiency"
+      "concerns": ["Their specific concern 1", "Their specific concern 2"]
     },
     {
       "title": "Another decision maker title",
-      "concerns": "Their specific concerns"
+      "concerns": ["Their specific concern 1", "Their specific concern 2"]
     }
   ]
 }
@@ -85,9 +85,17 @@ Keep response concise but complete.`;
       // Add fallback for decisionMakers if not present
       if (!parsed.decisionMakers || !Array.isArray(parsed.decisionMakers)) {
         parsed.decisionMakers = [
-          { title: 'Operations Manager', concerns: 'Driver coordination and compliance efficiency' },
-          { title: 'Fleet Manager', concerns: 'Cost optimization and routing efficiency' }
+          { title: 'Operations Manager', concerns: ['Driver coordination', 'Compliance efficiency'] },
+          { title: 'Fleet Manager', concerns: ['Cost optimization', 'Routing efficiency'] }
         ];
+      }
+
+      // Ensure all decisionMakers have concerns as arrays
+      if (parsed.decisionMakers && Array.isArray(parsed.decisionMakers)) {
+        parsed.decisionMakers = parsed.decisionMakers.map(maker => ({
+          ...maker,
+          concerns: Array.isArray(maker.concerns) ? maker.concerns : [maker.concerns]
+        }));
       }
 
       return parsed;
