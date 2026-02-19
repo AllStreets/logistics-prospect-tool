@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "title": "Driver Shortage Crisis",
+    "fact": "The trucking industry faces a severe driver shortage, with demand exceeding supply by over 80,000 drivers",
+    "relevance": "HappyRobot solution: Automate coordination to reduce driver workload, improving retention",
+    "tags": ["driver", "recruitment", "retention"]
+  },
+  {
+    "id": 2,
+    "title": "Compliance Costs Soaring",
+    "fact": "Trucking violations and fines cost companies up to $50,000+ per year per truck",
+    "relevance": "HappyRobot solution: Automated safety tracking and compliance monitoring reduces violations",
+    "tags": ["compliance", "safety", "cost"]
+  },
+  {
+    "id": 3,
+    "title": "Communication Bottleneck",
+    "fact": "Drivers spend 2-3 hours per week on manual coordination calls, costing the industry ~$800M annually",
+    "relevance": "HappyRobot solution: Automate 80% of coordination calls, freeing driver time for productive work",
+    "tags": ["communication", "efficiency", "costs"]
+  },
+  {
+    "id": 4,
+    "title": "Dispatch Inefficiency",
+    "fact": "Poor dispatch coordination costs carriers 10-20% in fuel and routing inefficiency",
+    "relevance": "HappyRobot solution: Real-time communication enables optimized routing and dispatch",
+    "tags": ["dispatch", "routing", "fuel"]
+  },
+  {
+    "id": 5,
+    "title": "Owner-Operator Challenges",
+    "fact": "Owner-operators struggle with coordination overhead; 40% cite communication as top challenge",
+    "relevance": "HappyRobot solution: Streamlines communication for owner-operator networks",
+    "tags": ["owner-operator", "communication", "network"]
+  },
+  {
+    "id": 6,
+    "title": "Regulatory Evolution",
+    "fact": "DOT continues adding compliance requirements; hours-of-service violations increased 30% year-over-year",
+    "relevance": "HappyRobot solution: Automated tracking ensures 100% compliance with evolving regulations",
+    "tags": ["compliance", "regulation", "safety"]
+  },
+  {
+    "id": 7,
+    "title": "Fuel Cost Volatility",
+    "fact": "Fuel costs represent 20-25% of trucking company operating costs",
+    "relevance": "HappyRobot solution: Optimized routing through better communication saves 5-10% on fuel",
+    "tags": ["fuel", "cost", "routing"]
+  },
+  {
+    "id": 8,
+    "title": "Customer Expectations Rising",
+    "fact": "Shippers expect real-time tracking and communication; 70% rate it as critical",
+    "relevance": "HappyRobot solution: Enables real-time customer communication and tracking",
+    "tags": ["customer", "communication", "tracking"]
+  },
+  {
+    "id": 9,
+    "title": "Safety Record Impact",
+    "fact": "Companies with poor safety records pay 10-30% more in insurance premiums",
+    "relevance": "HappyRobot solution: Improved communication reduces accidents and insurance costs",
+    "tags": ["safety", "insurance", "cost"]
+  },
+  {
+    "id": 10,
+    "title": "Technology Adoption Lag",
+    "fact": "50% of carriers still rely on manual communication and paper-based processes",
+    "relevance": "HappyRobot solution: Modern automation positions carriers as tech-forward operators",
+    "tags": ["technology", "modernization", "efficiency"]
+  },
+  {
+    "id": 11,
+    "title": "Detention Time Losses",
+    "fact": "Detention time (truck waiting at dock) costs $150-300 per occurrence",
+    "relevance": "HappyRobot solution: Better communication reduces detention time through proactive coordination",
+    "tags": ["detention", "cost", "efficiency"]
+  },
+  {
+    "id": 12,
+    "title": "Capacity Utilization Problem",
+    "fact": "Average capacity utilization is only 60-70%; poor communication causes empty miles",
+    "relevance": "HappyRobot solution: Optimized coordination improves utilization to 85%+",
+    "tags": ["utilization", "efficiency", "revenue"]
+  },
+  {
+    "id": 13,
+    "title": "Driver Retention ROI",
+    "fact": "Cost to replace a driver: $5,000-10,000; reducing turnover improves bottom line significantly",
+    "relevance": "HappyRobot solution: Better coordination improves driver satisfaction and retention",
+    "tags": ["retention", "cost", "drivers"]
+  },
+  {
+    "id": 14,
+    "title": "Shipper Relationships Critical",
+    "fact": "60% of revenue losses due to poor communication with shippers about delays/issues",
+    "relevance": "HappyRobot solution: Automated status updates and communication strengthen shipper relationships",
+    "tags": ["customer", "communication", "revenue"]
+  },
+  {
+    "id": 15,
+    "title": "Operating Cost Pressure",
+    "fact": "Industry margins compressed to 3-5%; every efficiency gain matters",
+    "relevance": "HappyRobot solution: Operational efficiency directly improves profitability",
+    "tags": ["profitability", "cost", "efficiency"]
+  },
+  {
+    "id": 16,
+    "title": "Dispatch Accuracy Issues",
+    "fact": "Manual dispatch errors cost $2,000-5,000 per incident in lost productivity",
+    "relevance": "HappyRobot solution: Automated coordination eliminates dispatch miscommunication",
+    "tags": ["dispatch", "accuracy", "cost"]
+  },
+  {
+    "id": 17,
+    "title": "Load Planning Inefficiency",
+    "fact": "Poor load planning costs 10-15% in inefficient routing and empty miles",
+    "relevance": "HappyRobot solution: Real-time communication enables better load planning",
+    "tags": ["planning", "routing", "efficiency"]
+  },
+  {
+    "id": 18,
+    "title": "Regulatory Penalties Escalating",
+    "fact": "DOT penalties can reach $5,000+ per violation; cumulative impact is substantial",
+    "relevance": "HappyRobot solution: Automated compliance tracking prevents costly violations",
+    "tags": ["compliance", "penalty", "safety"]
+  },
+  {
+    "id": 19,
+    "title": "Driver Communication Gap",
+    "fact": "25% of drivers report feeling disconnected from dispatch/management",
+    "relevance": "HappyRobot solution: Improves driver communication and job satisfaction",
+    "tags": ["driver", "communication", "satisfaction"]
+  },
+  {
+    "id": 20,
+    "title": "Market Consolidation Trend",
+    "fact": "Larger carriers are consolidating; technology adoption is a competitive advantage",
+    "relevance": "HappyRobot solution: Enables smaller carriers to compete with automation",
+    "tags": ["competition", "consolidation", "technology"]
+  },
+  {
+    "id": 21,
+    "title": "Insurance Premium Volatility",
+    "fact": "Accidents and violations directly impact insurance costs; one major incident = $10,000+",
+    "relevance": "HappyRobot solution: Safer operations through better communication reduce insurance costs",
+    "tags": ["insurance", "safety", "cost"]
+  },
+  {
+    "id": 22,
+    "title": "Real-Time Visibility Demand",
+    "fact": "80% of shippers now require real-time tracking; it's becoming table-stakes",
+    "relevance": "HappyRobot solution: Enables real-time visibility carriers demand from their tech",
+    "tags": ["tracking", "visibility", "customer"]
+  },
+  {
+    "id": 23,
+    "title": "Coordination Complexity Growth",
+    "fact": "Multi-stop routes have grown 40% in past 5 years; manual coordination is now impossible",
+    "relevance": "HappyRobot solution: Automates complex multi-stop coordination at scale",
+    "tags": ["coordination", "complexity", "efficiency"]
+  },
+  {
+    "id": 24,
+    "title": "Detention and Delay Costs",
+    "fact": "Unplanned delays cost carriers $5,000-15,000 per week per truck",
+    "relevance": "HappyRobot solution: Proactive communication prevents delays before they happen",
+    "tags": ["delay", "cost", "efficiency"]
+  },
+  {
+    "id": 25,
+    "title": "Equipment Utilization ROI",
+    "fact": "Better coordination adds $20-40K annual value per truck through improved utilization",
+    "relevance": "HappyRobot solution: Investment pays for itself in 3-6 months through utilization gains",
+    "tags": ["utilization", "roi", "cost"]
+  },
+  {
+    "id": 26,
+    "title": "Driver Safety Incidents",
+    "fact": "Communication breakdowns contribute to 40% of driver-related safety incidents",
+    "relevance": "HappyRobot solution: Clearer communication reduces safety incidents and liability",
+    "tags": ["safety", "communication", "liability"]
+  },
+  {
+    "id": 27,
+    "title": "Third-Party Logistics Growth",
+    "fact": "3PLs gaining market share; traditional carriers need efficiency to compete",
+    "relevance": "HappyRobot solution: Automation helps traditional carriers stay competitive",
+    "tags": ["competition", "3pl", "efficiency"]
+  },
+  {
+    "id": 28,
+    "title": "Customer Service Quality Gap",
+    "fact": "Poor communication is #1 reason for shipper complaints and lost contracts",
+    "relevance": "HappyRobot solution: Automated status updates eliminate communication issues",
+    "tags": ["customer", "service", "communication"]
+  },
+  {
+    "id": 29,
+    "title": "Operational Visibility Crisis",
+    "fact": "60% of carriers lack real-time visibility into their fleet operations",
+    "relevance": "HappyRobot solution: Provides comprehensive visibility through communication automation",
+    "tags": ["visibility", "operations", "technology"]
+  },
+  {
+    "id": 30,
+    "title": "Cost-Per-Mile Pressure",
+    "fact": "Cost-per-mile has increased 20% in past 3 years; efficiency gains are critical",
+    "relevance": "HappyRobot solution: Reduces cost-per-mile through optimized operations",
+    "tags": ["cost", "efficiency", "margin"]
+  }
+]
