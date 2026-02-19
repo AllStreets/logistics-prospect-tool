@@ -4,6 +4,11 @@ import ResultCard from './components/ResultCard';
 import FavoritesTab from './components/FavoritesTab';
 import CompareModal from './components/CompareModal';
 import EmailGeneratorModal from './components/EmailGeneratorModal';
+import DecisionMakersSection from './components/DecisionMakersSection';
+import ROICalculator from './components/ROICalculator';
+import IndustryInsights from './components/IndustryInsights';
+import SDRScoreCard from './components/SDRScoreCard';
+import EmailTemplatesSection from './components/EmailTemplatesSection';
 import './App.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
@@ -11,6 +16,7 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 function App() {
   const [companies, setCompanies] = useState([]);
   const [results, setResults] = useState(null);
+  const [selectedCompany, setSelectedCompany] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [showFavorites, setShowFavorites] = useState(false);
@@ -50,6 +56,10 @@ function App() {
       if (!response.ok) throw new Error('Analysis failed');
       const data = await response.json();
       setResults(data);
+
+      // Find and set the selected company from the companies list
+      const company = companies.find(c => c.name === companyName);
+      setSelectedCompany(company || { name: companyName, fleetSize: null, companyType: null });
     } catch (err) {
       setError('Failed to analyze company');
       console.error(err);
@@ -108,7 +118,7 @@ function App() {
           </div>
         )}
 
-        {results && (
+        {results && selectedCompany && (
           <div className="results-container">
             <ResultCard
               title="Company Profile"
@@ -121,9 +131,9 @@ function App() {
               onSaved={handleSaved}
             />
             <ResultCard
-              title="Tech Stack"
-              content={results.techStack}
-              icon="💻"
+              title="Pain Points"
+              content={results.painPoints}
+              icon="⚠️"
               index={1}
               showSaveButton={true}
               companyName={results.company}
@@ -131,9 +141,9 @@ function App() {
               onSaved={handleSaved}
             />
             <ResultCard
-              title="Pain Points"
-              content={results.painPoints}
-              icon="⚠️"
+              title="Tech Stack"
+              content={results.techStack}
+              icon="💻"
               index={2}
               showSaveButton={true}
               companyName={results.company}
@@ -149,6 +159,23 @@ function App() {
               companyName={results.company}
               analysisData={results}
               onSaved={handleSaved}
+            />
+            <DecisionMakersSection
+              decisionMakers={results.decisionMakers}
+            />
+            <ROICalculator
+              companyFleetSize={selectedCompany.fleetSize}
+            />
+            <IndustryInsights
+              companyType={selectedCompany.companyType}
+            />
+            <SDRScoreCard
+              company={selectedCompany}
+              painPoints={results.painPoints}
+            />
+            <EmailTemplatesSection
+              companyName={selectedCompany.name}
+              painPoints={results.painPoints}
             />
           </div>
         )}
