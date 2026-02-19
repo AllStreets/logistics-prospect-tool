@@ -5,62 +5,248 @@
     "industry": "Long-haul trucking",
     "location": "Omaha, Nebraska",
     "type": "Regional Carrier",
-    "description": "Regional trucking and logistics provider with 10,000+ trucks"
+    "description": "Regional trucking and logistics provider with 10,000+ trucks",
+    "fleetSize": 10500,
+    "companyType": "Large Regional Carrier"
   },
   {
     "id": 2,
-    "name": "Heartland Express",
-    "industry": "Dry van trucking",
-    "location": "North Liberty, Iowa",
-    "type": "Owner-operator network",
-    "description": "Network of owner-operators in regional transportation"
+    "name": "JB Hunt",
+    "industry": "Long-haul trucking",
+    "location": "Lowell, Arkansas",
+    "type": "Regional Carrier",
+    "description": "One of the largest trucking companies in North America",
+    "fleetSize": 23000,
+    "companyType": "Mega Carrier"
   },
   {
     "id": 3,
-    "name": "Dupre Logistics",
-    "industry": "Tank truck transport",
-    "location": "Houma, Louisiana",
-    "type": "Specialty Carrier",
-    "description": "Chemical and petroleum tank truck transportation"
+    "name": "Knight",
+    "industry": "Long-haul trucking",
+    "location": "Phoenix, Arizona",
+    "type": "Regional Carrier",
+    "description": "Large regional trucking company with diverse service offerings",
+    "fleetSize": 18000,
+    "companyType": "Large Regional Carrier"
   },
   {
     "id": 4,
-    "name": "CRST International",
-    "industry": "Refrigerated trucking",
-    "location": "Cedar Rapids, Iowa",
+    "name": "Schneider National",
+    "industry": "Long-haul trucking",
+    "location": "Green Bay, Wisconsin",
     "type": "Regional Carrier",
-    "description": "Refrigerated LTL and TL services across North America"
+    "description": "Major trucking and logistics company with comprehensive services",
+    "fleetSize": 12000,
+    "companyType": "Large Regional Carrier"
   },
   {
     "id": 5,
-    "name": "Celadon Group",
-    "industry": "International trucking",
-    "location": "Indianapolis, Indiana",
-    "type": "Global Carrier",
-    "description": "International and domestic trucking and logistics"
+    "name": "XPO Logistics",
+    "industry": "LTL and freight",
+    "location": "Greenwich, Connecticut",
+    "type": "LTL Carrier",
+    "description": "Large LTL carrier with pickup and delivery network across US",
+    "fleetSize": 19000,
+    "companyType": "Large LTL Carrier"
   },
   {
     "id": 6,
+    "name": "ArcBest",
+    "industry": "LTL and trucking",
+    "location": "Fort Smith, Arkansas",
+    "type": "LTL Carrier",
+    "description": "LTL and truckload services with specialized transportation",
+    "fleetSize": 4500,
+    "companyType": "Mid-Size LTL Carrier"
+  },
+  {
+    "id": 7,
+    "name": "Swift Transportation",
+    "industry": "Long-haul trucking",
+    "location": "Phoenix, Arizona",
+    "type": "Regional Carrier",
+    "description": "Large truckload carrier with coast-to-coast operations",
+    "fleetSize": 21000,
+    "companyType": "Large Regional Carrier"
+  },
+  {
+    "id": 8,
+    "name": "Old Dominion Freight Line",
+    "industry": "LTL freight",
+    "location": "Thomasville, North Carolina",
+    "type": "LTL Carrier",
+    "description": "Largest LTL carrier in North America by revenue",
+    "fleetSize": 10000,
+    "companyType": "Large LTL Carrier"
+  },
+  {
+    "id": 9,
+    "name": "YRC Worldwide",
+    "industry": "LTL and trucking",
+    "location": "Overland Park, Kansas",
+    "type": "LTL Carrier",
+    "description": "Multi-service transportation and logistics company",
+    "fleetSize": 14000,
+    "companyType": "Large LTL Carrier"
+  },
+  {
+    "id": 10,
+    "name": "Saia Inc",
+    "industry": "LTL freight",
+    "location": "Johns Creek, Georgia",
+    "type": "LTL Carrier",
+    "description": "Regional LTL carrier with growing network across Southeast",
+    "fleetSize": 2800,
+    "companyType": "Mid-Size LTL Carrier"
+  },
+  {
+    "id": 11,
+    "name": "Covenant Transportation",
+    "industry": "Truckload services",
+    "location": "Chattanooga, Tennessee",
+    "type": "Truckload Carrier",
+    "description": "Driver-focused trucking company with OTR operations",
+    "fleetSize": 4100,
+    "companyType": "Mid-Size Carrier"
+  },
+  {
+    "id": 12,
+    "name": "Knight-Swift",
+    "industry": "Long-haul trucking",
+    "location": "Phoenix, Arizona",
+    "type": "Regional Carrier",
+    "description": "Merger of Knight and Swift creating largest trucking company",
+    "fleetSize": 40000,
+    "companyType": "Mega Carrier"
+  },
+  {
+    "id": 13,
+    "name": "Marten Transport",
+    "industry": "Refrigerated trucking",
+    "location": "Mondovi, Wisconsin",
+    "type": "Specialty Carrier",
+    "description": "Specialized in refrigerated and intermodal services",
+    "fleetSize": 1800,
+    "companyType": "Specialty Carrier"
+  },
+  {
+    "id": 14,
+    "name": "Daseke Inc",
+    "industry": "Specialized trucking",
+    "location": "Addison, Texas",
+    "type": "Specialty Carrier",
+    "description": "Portfolio of specialized transportation services",
+    "fleetSize": 3500,
+    "companyType": "Specialty Carrier"
+  },
+  {
+    "id": 15,
+    "name": "Universal Truckload Services",
+    "industry": "Freight brokerage",
+    "location": "New York, New York",
+    "type": "Freight Broker",
+    "description": "Full-service freight brokerage and transportation",
+    "fleetSize": 500,
+    "companyType": "Freight Broker"
+  },
+  {
+    "id": 16,
+    "name": "C.R. England",
+    "industry": "Long-haul trucking",
+    "location": "Salt Lake City, Utah",
+    "type": "Regional Carrier",
+    "description": "Family-owned carrier with focus on driver safety and training",
+    "fleetSize": 5000,
+    "companyType": "Mid-Size Carrier"
+  },
+  {
+    "id": 17,
     "name": "PAM Transportation",
     "industry": "Flatbed and heavy haul",
     "location": "Tontitown, Arkansas",
     "type": "Specialty Carrier",
-    "description": "Flatbed, heavy haul, and specialized equipment transport"
+    "description": "Flatbed, heavy haul, and specialized equipment transport",
+    "fleetSize": 800,
+    "companyType": "Specialty Carrier"
   },
   {
-    "id": 7,
-    "name": "Uber Freight",
-    "industry": "Logistics marketplace",
-    "location": "San Francisco, California",
-    "type": "Digital Platform",
-    "description": "AI-driven freight matching and logistics network"
+    "id": 18,
+    "name": "Dupre Logistics",
+    "industry": "Tank truck transport",
+    "location": "Houma, Louisiana",
+    "type": "Specialty Carrier",
+    "description": "Chemical and petroleum tank truck transportation",
+    "fleetSize": 550,
+    "companyType": "Specialty Carrier"
   },
   {
-    "id": 8,
+    "id": 19,
+    "name": "CRST International",
+    "industry": "Refrigerated trucking",
+    "location": "Cedar Rapids, Iowa",
+    "type": "Regional Carrier",
+    "description": "Refrigerated LTL and TL services across North America",
+    "fleetSize": 2000,
+    "companyType": "Mid-Size Carrier"
+  },
+  {
+    "id": 20,
+    "name": "Heartland Express",
+    "industry": "Dry van trucking",
+    "location": "North Liberty, Iowa",
+    "type": "Owner-operator network",
+    "description": "Network of owner-operators in regional transportation",
+    "fleetSize": 3200,
+    "companyType": "Owner-Operator Network"
+  },
+  {
+    "id": 21,
     "name": "Forward Air",
     "industry": "Expedited and air freight",
     "location": "Nashville, Tennessee",
     "type": "Specialty Carrier",
-    "description": "Air and ground expedited freight services"
+    "description": "Air and ground expedited freight services",
+    "fleetSize": 1200,
+    "companyType": "Specialty Carrier"
+  },
+  {
+    "id": 22,
+    "name": "Uber Freight",
+    "industry": "Logistics marketplace",
+    "location": "San Francisco, California",
+    "type": "Digital Platform",
+    "description": "AI-driven freight matching and logistics network",
+    "fleetSize": 0,
+    "companyType": "Digital Platform"
+  },
+  {
+    "id": 23,
+    "name": "Celadon Group",
+    "industry": "International trucking",
+    "location": "Indianapolis, Indiana",
+    "type": "Global Carrier",
+    "description": "International and domestic trucking and logistics",
+    "fleetSize": 4700,
+    "companyType": "Mid-Size Carrier"
+  },
+  {
+    "id": 24,
+    "name": "USA Truck",
+    "industry": "Long-haul trucking",
+    "location": "Van Buren, Arkansas",
+    "type": "Regional Carrier",
+    "description": "Regional short-haul and OTR trucking operations",
+    "fleetSize": 2300,
+    "companyType": "Mid-Size Carrier"
+  },
+  {
+    "id": 25,
+    "name": "TransAm Trucking",
+    "industry": "Long-haul trucking",
+    "location": "Agoura Hills, California",
+    "type": "Regional Carrier",
+    "description": "Professional long-haul trucking with dedicated fleet",
+    "fleetSize": 500,
+    "companyType": "Specialty Carrier"
   }
 ]
