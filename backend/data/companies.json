@@ -248,5 +248,15 @@
     "description": "Professional long-haul trucking with dedicated fleet",
     "fleetSize": 500,
     "companyType": "Specialty Carrier"
+  },
+  {
+    "id": 26,
+    "name": "Eagle Transport Corporation",
+    "industry": "Liquid bulk transportation",
+    "location": "Rocky Mount, North Carolina",
+    "type": "Specialty Carrier",
+    "description": "Specialized liquid bulk carrier for petroleum, chemicals, and biofuels since 1969",
+    "fleetSize": 1500,
+    "companyType": "specialty_carrier"
   }
 ]
