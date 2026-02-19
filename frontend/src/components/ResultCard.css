@@ -1,12 +1,14 @@
 .result-card {
   background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
   border: 1px solid rgba(96, 165, 250, 0.2);
+  border-left: 4px solid;
   border-radius: 16px;
-  padding: 28px;
+  padding: 0;
   backdrop-filter: blur(10px);
   animation: cardAppear 0.5s ease-out forwards;
   opacity: 0;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 @keyframes cardAppear {
@@ -30,27 +32,24 @@
 .card-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.card-icon {
-  font-size: 1.8rem;
-  opacity: 0.9;
+  padding: 20px 28px;
+  margin-bottom: 0;
 }
 
 .card-header h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #e2e8f0;
+  color: #ffffff;
   letter-spacing: -0.3px;
+  margin: 0;
 }
 
 .card-content {
   color: #cbd5e1;
   line-height: 1.6;
   font-size: 0.95rem;
+  padding: 24px 28px;
 }
 
 .card-content p {
